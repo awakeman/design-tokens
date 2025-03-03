@@ -62,6 +62,15 @@ const groups = {
     'ts/size/css/letterspacing',
     'ts/color/modifiers'
   ],
+  xaml: [
+    'custom/descriptionToComment',
+    'name/pascal',
+    'ts/opacity',
+    'ts/size/lineheight',
+    'ts/typography/fontWeight',
+    'ts/resolveMath',
+    'ts/color/modifiers',
+  ],
   mobile: [
     'custom/descriptionToComment',
     'name/camel',

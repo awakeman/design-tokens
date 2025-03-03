@@ -6,6 +6,8 @@ import * as fs from "fs"
 import { StyleDictionary, groups } from './style-dictionary.js'
 import { DesignToken, File } from 'style-dictionary/types'
 import { FilterComponent } from './utils/filter-component.js'
+import { xamlFormat } from './formats/xamlFormat.js'
+
 
 const components = fs.readdirSync('./data/tokens/components/')
 const context = fs.readdirSync('./data/tokens/context/')
@@ -29,6 +31,11 @@ interface IConfig {
   modeName: string
   sizeName: string
 }
+
+StyleDictionary.registerFormat({
+	name: 'custom/xaml/wpf',
+	format: xamlFormat,
+});
 
 const getMode = ({modeName = '', format, subType, suffix}: IMode): File[] => {
   const mode = format.includes('variables') ? '' : modeName
@@ -104,30 +111,37 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) => {
           ...getFiles({componentName: 'global', format: 'css/variables', subType, suffix: 'css'})
         ]
       },
-      scss: {
-        buildPath: 'dist/scss/',
-        transforms: groups.scss,
+      // scss: {
+      //   buildPath: 'dist/scss/',
+      //   transforms: groups.scss,
+      //   files: [
+      //     ...getFiles({componentName: 'global', format: 'scss/variables', subType, suffix: 'scss'})
+      //   ]
+      // },
+      // js: {
+      //   buildPath: 'dist/js/',
+      //   transforms: groups.js,
+      //   files: [
+      //     ...getFiles({componentName: 'global', format: 'javascript/module', subType: `common/${subType}`, suffix: 'js'}),
+      //     ...getFiles({componentName: 'global', format: 'typescript/module-declarations', subType: `common/${subType}`, suffix: 'd.ts'}),
+      //     ...getFiles({componentName: 'global', format: 'javascript/es6', subType: `es6/${subType}`, suffix: 'js'}),
+      //     ...getFiles({componentName: 'global', format: 'typescript/es6-declarations', subType: `es6/${subType}`, suffix: 'd.ts'}),
+      //     ...getFiles({componentName: 'global', format: 'javascript/umd', subType: `umd/${subType}`, suffix: 'js'})
+      //   ]
+      // },
+      // json: {
+      //   buildPath: 'dist/json/',
+      //   transforms: groups.json,
+      //   files: [
+      //     ...getFiles({componentName: 'global', format: 'json/nested', subType: `nested/${subType}`, suffix: 'json'}),
+      //     ...getFiles({componentName: 'global', format: 'json/flat', subType: `flat/${subType}`, suffix: 'json'})
+      //   ]
+      // },
+      xaml: {
+        buildPath: 'dist/xaml/',
+        transforms: groups.xaml,
         files: [
-          ...getFiles({componentName: 'global', format: 'scss/variables', subType, suffix: 'scss'})
-        ]
-      },
-      js: {
-        buildPath: 'dist/js/',
-        transforms: groups.js,
-        files: [
-          ...getFiles({componentName: 'global', format: 'javascript/module', subType: `common/${subType}`, suffix: 'js'}),
-          ...getFiles({componentName: 'global', format: 'typescript/module-declarations', subType: `common/${subType}`, suffix: 'd.ts'}),
-          ...getFiles({componentName: 'global', format: 'javascript/es6', subType: `es6/${subType}`, suffix: 'js'}),
-          ...getFiles({componentName: 'global', format: 'typescript/es6-declarations', subType: `es6/${subType}`, suffix: 'd.ts'}),
-          ...getFiles({componentName: 'global', format: 'javascript/umd', subType: `umd/${subType}`, suffix: 'js'})
-        ]
-      },
-      json: {
-        buildPath: 'dist/json/',
-        transforms: groups.json,
-        files: [
-          ...getFiles({componentName: 'global', format: 'json/nested', subType: `nested/${subType}`, suffix: 'json'}),
-          ...getFiles({componentName: 'global', format: 'json/flat', subType: `flat/${subType}`, suffix: 'json'})
+          ...getFiles({componentName: 'global', format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
         ]
       },
       // todo: debug android build
@@ -138,13 +152,13 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) => {
       //     ...getFiles({componentName: 'global', format: 'android/resources', subType, suffix: 'xml'})
       //   ]
       // },
-      ios: {
-        buildPath: 'dist/ios/',
-        transforms: groups.mobile,
-        files: [
-          ...getFiles({componentName: 'global', format: 'ios/macros', subType, suffix: 'h'})
-        ]
-      }
+      // ios: {
+      //   buildPath: 'dist/ios/',
+      //   transforms: groups.mobile,
+      //   files: [
+      //     ...getFiles({componentName: 'global', format: 'ios/macros', subType, suffix: 'h'})
+      //   ]
+      // },
     },
     log: {
       warnings: 'warn',
@@ -175,30 +189,37 @@ const getModeConfig = ({contextName, modeName, sizeName}: IConfig) => {
           ...getMode({modeName, format: 'css/variables', subType, suffix: 'css'})
         ]
       },
-      scss: {
-        buildPath: 'dist/scss/',
-        transforms: groups.scss,
+      // scss: {
+      //   buildPath: 'dist/scss/',
+      //   transforms: groups.scss,
+      //   files: [
+      //     ...getMode({modeName, format: 'scss/variables', subType, suffix: 'scss'})
+      //   ]
+      // },
+      // js: {
+      //   buildPath: 'dist/js/',
+      //   transforms: groups.js,
+      //   files: [
+      //     ...getMode({modeName, format: 'javascript/module', subType: `common/${subType}`, suffix: 'js'}),
+      //     ...getMode({modeName, format: 'typescript/module-declarations', subType: `common/${subType}`, suffix: 'd.ts'}),
+      //     ...getMode({modeName, format: 'javascript/es6', subType: `es6/${subType}`, suffix: 'js'}),
+      //     ...getMode({modeName, format: 'typescript/es6-declarations', subType: `es6/${subType}`, suffix: 'd.ts'}),
+      //     ...getMode({modeName, format: 'javascript/umd', subType: `umd/${subType}`, suffix: 'js'})
+      //   ]
+      // },
+      // json: {
+      //   buildPath: 'dist/json/',
+      //   transforms: groups.json,
+      //   files: [
+      //     ...getMode({modeName, format: 'json/nested', subType: `nested/${subType}`, suffix: 'json'}),
+      //     ...getMode({modeName, format: 'json/flat', subType: `flat/${subType}`, suffix: 'json'})
+      //   ]
+      // },
+      xaml: {
+        buildPath: 'dist/xaml/',
+        transforms: groups.xaml,
         files: [
-          ...getMode({modeName, format: 'scss/variables', subType, suffix: 'scss'})
-        ]
-      },
-      js: {
-        buildPath: 'dist/js/',
-        transforms: groups.js,
-        files: [
-          ...getMode({modeName, format: 'javascript/module', subType: `common/${subType}`, suffix: 'js'}),
-          ...getMode({modeName, format: 'typescript/module-declarations', subType: `common/${subType}`, suffix: 'd.ts'}),
-          ...getMode({modeName, format: 'javascript/es6', subType: `es6/${subType}`, suffix: 'js'}),
-          ...getMode({modeName, format: 'typescript/es6-declarations', subType: `es6/${subType}`, suffix: 'd.ts'}),
-          ...getMode({modeName, format: 'javascript/umd', subType: `umd/${subType}`, suffix: 'js'})
-        ]
-      },
-      json: {
-        buildPath: 'dist/json/',
-        transforms: groups.json,
-        files: [
-          ...getMode({modeName, format: 'json/nested', subType: `nested/${subType}`, suffix: 'json'}),
-          ...getMode({modeName, format: 'json/flat', subType: `flat/${subType}`, suffix: 'json'})
+          ...getMode({modeName, format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
         ]
       },
       // todo: debug android build
@@ -209,13 +230,13 @@ const getModeConfig = ({contextName, modeName, sizeName}: IConfig) => {
       //     ...getMode({modeName, format: 'android/resources', subType, suffix: 'xml'})
       //   ]
       // },
-      ios: {
-        buildPath: 'dist/ios/',
-        transforms: groups.mobile,
-        files: [
-          ...getMode({modeName, format: 'ios/macros', subType, suffix: 'h'})
-        ]
-      }
+      // ios: {
+      //   buildPath: 'dist/ios/',
+      //   transforms: groups.mobile,
+      //   files: [
+      //     ...getMode({modeName, format: 'ios/macros', subType, suffix: 'h'})
+      //   ]
+      // }
     },
     log: {
       warnings: 'warn',
@@ -245,11 +266,12 @@ context.forEach(async (context) => {
 
     const styleDictionary = new StyleDictionary(getGlobalConfig({contextName, modeName: '', sizeName}))
 
+    await styleDictionary.buildPlatform('xaml')
     await styleDictionary.buildPlatform('css')
-    await styleDictionary.buildPlatform('scss')
-    await styleDictionary.buildPlatform('js')
-    await styleDictionary.buildPlatform('json')
-    await styleDictionary.buildPlatform('ios')
+    // await styleDictionary.buildPlatform('scss')
+    // await styleDictionary.buildPlatform('js')
+    // await styleDictionary.buildPlatform('json')
+    // await styleDictionary.buildPlatform('ios')
     //await styleDictionary.buildPlatform('android')
 
     modes.forEach(async (mode) => {
@@ -262,11 +284,13 @@ context.forEach(async (context) => {
 
       const styleDictionary = new StyleDictionary(getModeConfig({contextName, modeName, sizeName}))
 
+      await styleDictionary.buildPlatform('xaml')
+
       await styleDictionary.buildPlatform('css')
-      await styleDictionary.buildPlatform('scss')
-      await styleDictionary.buildPlatform('js')
-      await styleDictionary.buildPlatform('json')
-      await styleDictionary.buildPlatform('ios')
+      // await styleDictionary.buildPlatform('scss')
+      // await styleDictionary.buildPlatform('js')
+      // await styleDictionary.buildPlatform('json')
+      // await styleDictionary.buildPlatform('ios')
       //await styleDictionary.buildPlatform('android')
     })
   })
