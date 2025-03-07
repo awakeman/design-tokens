@@ -1,11 +1,10 @@
-import type { Dictionary, DesignToken, TransformedToken, PlatformConfig, File } from 'style-dictionary/types';
-import { fileHeader, formattedVariables } from 'style-dictionary/utils';
+import type { FormatFnArguments } from 'style-dictionary/types';
 import Color from 'tinycolor2';
 
 export function xamlFormat({
     dictionary,
     options,
-}): string {
+} : FormatFnArguments): string {
     let output = `<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">\n`;
     let spacings : {[k: string]: {x: string, y: string}} = {};
     for (const token of dictionary.allTokens) {
@@ -14,7 +13,6 @@ export function xamlFormat({
         }
 
         switch (token.$type) {
-
             case 'borderRadius':
                 output += `<CornerRadius x:Key="${token.name}">${token.$value}</CornerRadius>\n`;
                 break;
@@ -22,7 +20,17 @@ export function xamlFormat({
                 output += `<Thickness x:Key="${token.name}">${token.$value}</Thickness>\n`;
                 break;
             case 'boxShadow':
-                output += `<!--\n TODO: <DropShadowEffect x:Key="${token.name}" BlurRadius="" Direction="" Color="" Opacity="">\n ${JSON.stringify(token.$value)}\n-->\n`;
+                output += `<x:Array x:Key="${token.name}" Type="DropShadowEffect">\n`
+                for (const {x, y, blur, color} of token.$value)
+                {
+                    const depth = Math.sqrt((x*x) + (y*y));
+                    const angle = (360 - (Math.atan(y/x) * (180/Math.PI))) % 360
+                    const opacity = Color(color).getAlpha();
+                    const hex = `#${Color(color).toHex8().slice(0,6)}`;
+
+                    output += `    <DropShadowEffect BlurRadius="${blur}" Direction="${angle}" ShadowDepth="${depth}" Color="${hex}" Opacity="${opacity}" />\n`;
+                }
+                output += '</x:Array>\n'
                 break;
             case 'color':
                 const color = Color(options.usesDtcg ? token.$value : token.value);
