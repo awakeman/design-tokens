@@ -4,7 +4,7 @@ Copyright © 2024 The Sage Group plc or its licensors. All Rights reserved
 
 import * as fs from "fs"
 import { StyleDictionary, groups } from './style-dictionary.js'
-import { DesignToken, File } from 'style-dictionary/types'
+import { Config, DesignToken, File } from 'style-dictionary/types'
 import { FilterComponent } from './utils/filter-component.js'
 import { xamlFormat } from './formats/xamlFormat.js'
 
@@ -93,7 +93,7 @@ const getFiles = ({componentName, modeName = '', format, subType, suffix, output
   ]
 }
 
-const getGlobalConfig = ({contextName, sizeName}: IConfig) => {
+const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
   const subType = `${contextName}/${sizeName}`
 
   return {
@@ -104,13 +104,13 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) => {
     ],
     preprocessors: ['tokens-studio'],
     platforms: {
-      css: {
-        buildPath: 'dist/css/',
-        transforms: groups.css,
-        files: [
-          ...getFiles({componentName: 'global', format: 'css/variables', subType, suffix: 'css'})
-        ]
-      },
+    //   css: {
+    //     buildPath: 'dist/css/',
+    //     transforms: groups.css,
+    //     files: [
+    //       ...getFiles({componentName: 'global', format: 'css/variables', subType, suffix: 'css'})
+    //     ]
+    //   },
       // scss: {
       //   buildPath: 'dist/scss/',
       //   transforms: groups.scss,
@@ -170,7 +170,7 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) => {
   }
 }
 
-const getModeConfig = ({contextName, modeName, sizeName}: IConfig) => {
+const getModeConfig = ({contextName, modeName, sizeName}: IConfig) : Config => {
   const subType = `${contextName}/${sizeName}`
 
   return {
@@ -182,13 +182,13 @@ const getModeConfig = ({contextName, modeName, sizeName}: IConfig) => {
       './data/tokens/components/*.json'
     ],
     platforms: {
-      css: {
-        buildPath: 'dist/css/',
-        transforms: groups.css,
-        files: [
-          ...getMode({modeName, format: 'css/variables', subType, suffix: 'css'})
-        ]
-      },
+      // css: {
+      //   buildPath: 'dist/css/',
+      //   transforms: groups.css,
+      //   files: [
+      //     ...getMode({modeName, format: 'css/variables', subType, suffix: 'css'})
+      //   ]
+      // },
       // scss: {
       //   buildPath: 'dist/scss/',
       //   transforms: groups.scss,
@@ -248,7 +248,9 @@ const getModeConfig = ({contextName, modeName, sizeName}: IConfig) => {
   }
 }
 
-context.forEach(async (context) => {
+async function run() {
+  try {
+await Promise.all(context.map((context) => {
   const contextName = context.split('.json')[0]
 
   if (!contextName) {
@@ -256,7 +258,7 @@ context.forEach(async (context) => {
       `Context name not found for ${context}`)
   }
 
-  screensize.forEach(async (size) => {
+  return screensize.map((size) => {
     const sizeName = size.split('.json')[0]
 
     if (!sizeName) {
@@ -266,15 +268,15 @@ context.forEach(async (context) => {
 
     const styleDictionary = new StyleDictionary(getGlobalConfig({contextName, modeName: '', sizeName}))
 
-    await styleDictionary.buildPlatform('xaml')
-    await styleDictionary.buildPlatform('css')
-    // await styleDictionary.buildPlatform('scss')
-    // await styleDictionary.buildPlatform('js')
-    // await styleDictionary.buildPlatform('json')
-    // await styleDictionary.buildPlatform('ios')
-    //await styleDictionary.buildPlatform('android')
-
-    modes.forEach(async (mode) => {
+    return [
+      styleDictionary.buildPlatform('xaml'),
+      // styleDictionary.buildPlatform('css'),
+      // styleDictionary.buildPlatform('scss'),
+      // styleDictionary.buildPlatform('js'),
+      // styleDictionary.buildPlatform('json'),
+      // styleDictionary.buildPlatform('ios'),
+      //styleDictionary.buildPlatform('android'),
+    ].concat(modes.map((mode) => {
       const modeName = mode.split('.json')[0]
 
       if (!modeName) {
@@ -282,16 +284,23 @@ context.forEach(async (context) => {
           `Mode name not found for ${mode}`)
       }
 
-      const styleDictionary = new StyleDictionary(getModeConfig({contextName, modeName, sizeName}))
+      const styleDictionary = new StyleDictionary(getModeConfig({ contextName, modeName, sizeName }))
 
-      await styleDictionary.buildPlatform('xaml')
+      return [
+        styleDictionary.buildPlatform('xaml'),
+        // styleDictionary.buildPlatform('css'),
+        // styleDictionary.buildPlatform('scss'),
+        // styleDictionary.buildPlatform('js'),
+        // styleDictionary.buildPlatform('json'),
+        // styleDictionary.buildPlatform('ios'),
+        //await styleDictionary.buildPlatform('android'),
+      ]
+    }).reduce((a,b) => a.concat(b), []))
+  }).reduce((a,b) => a.concat(b), [])
+}).reduce((a,b) => a.concat(b), []))
+  } catch(e) {
+    console.log(e)
+  }
+}
 
-      await styleDictionary.buildPlatform('css')
-      // await styleDictionary.buildPlatform('scss')
-      // await styleDictionary.buildPlatform('js')
-      // await styleDictionary.buildPlatform('json')
-      // await styleDictionary.buildPlatform('ios')
-      //await styleDictionary.buildPlatform('android')
-    })
-  })
-})
+await run()
