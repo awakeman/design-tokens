@@ -4,7 +4,7 @@ Copyright © 2024 The Sage Group plc or its licensors. All Rights reserved
 
 import * as fs from "fs"
 import { StyleDictionary, groups } from './style-dictionary.js'
-import { Config, DesignToken, File } from 'style-dictionary/types'
+import { Config, DesignToken, File, FileHeader } from 'style-dictionary/types'
 import { FilterComponent } from './utils/filter-component.js'
 import { xamlFormat } from './formats/xamlFormat.js'
 import { deflate } from "zlib"
@@ -14,6 +14,10 @@ const components = fs.readdirSync('./data/tokens/components/')
 const context = fs.readdirSync('./data/tokens/context/')
 const modes = fs.readdirSync('./data/tokens/modes/')
 const screensize = fs.readdirSync('./data/tokens/screensize/')
+
+const fileHeader: FileHeader = (defaultMessages = []) => {
+  return [...defaultMessages, 'THIS FILE IS AUTO-GENERATED PLEASE DO NOT EDIT', `Generated on ${new Date().toLocaleDateString()}`]
+}
 
 interface IMode {
   modeName?: string
@@ -142,9 +146,8 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
         buildPath: 'dist/xaml/',
         transforms: groups.xaml,
         options: {
-          fileHeader: (defaultMessages = []) => {
-            return [...defaultMessages, 'AUTO-GENERATED PLEASE DO NOT EDIT', `Generated on ${new Date().toLocaleDateString()}`]
-          }
+          fileHeader,
+          showFileHeader: true
         },
         files: [
           ...getFiles({componentName: 'global', format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
@@ -224,6 +227,10 @@ const getModeConfig = ({contextName, modeName, sizeName}: IConfig) : Config => {
       xaml: {
         buildPath: 'dist/xaml/',
         transforms: groups.xaml,
+        options: {
+          fileHeader,
+          showFileHeader: true
+        },
         files: [
           ...getMode({modeName, format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
         ]

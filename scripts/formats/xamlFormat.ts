@@ -1,6 +1,6 @@
 import { Dictionary } from 'style-dictionary';
 import type { Config, DesignToken, FormatFnArguments, LocalOptions, TransformedToken } from 'style-dictionary/types';
-import { usesReferences, getReferences } from 'style-dictionary/utils';
+import { usesReferences, getReferences, fileHeader } from 'style-dictionary/utils';
 import Color from 'tinycolor2';
 import { create, fragment } from 'xmlbuilder2';
 import { XmlBuilder } from 'xmlbuilder2/interfaces'
@@ -26,12 +26,14 @@ export async function xamlFormat(args: FormatFnArguments): Promise<string> {
     const { dictionary, options } = args;
     
     const doc = create();
-    if(options.fileHeader) {
+    if(options.showFileHeader && options.fileHeader) {
         if (typeof options.fileHeader === 'function') {
-            const header = await options.fileHeader(undefined, options);
-            doc.com(header.reduce((a,b) => `${a}\n${b}`));
+            const header = (await options.fileHeader(undefined, options))
+                .reduce((a, b) => `${a}\n${b}`);
+            doc.com(`\n${header}\n`);
         } else {
             doc.com(options.fileHeader)
+            doc.com(`\n${fileHeader}\n`);
         }
     }
 
