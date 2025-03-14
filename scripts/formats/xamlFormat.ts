@@ -162,10 +162,9 @@ function typography(token: TransformedToken, { dictionary, options }: FormatFnAr
     const style = create().ele('Style').att(ns_x, 'Key', token.name).att('TargetType', 'TextBlock');
     if (fontFamily) {
         const key = `${token.name}_FontFamily`;
-        const family = root.ele(ns_default, 'FontFamily');
-        family.txt(`pack://application:,,,/Sage.DesignSystem.Theme;component/Fonts/#${fontFamily}`);
-        family.txt(fontFamily);
-        family.att(ns_x, 'Key', key)
+        root.ele(ns_default, 'FontFamily')
+            .txt(`pack://application:,,,/Sage.DesignSystem.Theme;component/Fonts/#${fontFamily}`)
+            .att(ns_x, 'Key', key)
 
         style.ele(ns_default, 'Setter', { 'Property': 'FontFamily', 'Value': `{StaticResource ${key}}`});
     }
