@@ -7,6 +7,7 @@ import { StyleDictionary, groups } from './style-dictionary.js'
 import { Config, DesignToken, File } from 'style-dictionary/types'
 import { FilterComponent } from './utils/filter-component.js'
 import { xamlFormat } from './formats/xamlFormat.js'
+import { deflate } from "zlib"
 
 
 const components = fs.readdirSync('./data/tokens/components/')
@@ -104,13 +105,13 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
     ],
     preprocessors: ['tokens-studio'],
     platforms: {
-    //   css: {
-    //     buildPath: 'dist/css/',
-    //     transforms: groups.css,
-    //     files: [
-    //       ...getFiles({componentName: 'global', format: 'css/variables', subType, suffix: 'css'})
-    //     ]
-    //   },
+      //   css: {
+      //     buildPath: 'dist/css/',
+      //     transforms: groups.css,
+      //     files: [
+      //       ...getFiles({componentName: 'global', format: 'css/variables', subType, suffix: 'css'})
+      //     ]
+      //   },
       // scss: {
       //   buildPath: 'dist/scss/',
       //   transforms: groups.scss,
@@ -140,6 +141,11 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
       xaml: {
         buildPath: 'dist/xaml/',
         transforms: groups.xaml,
+        options: {
+          fileHeader: (defaultMessages = []) => {
+            return [...defaultMessages, 'AUTO-GENERATED PLEASE DO NOT EDIT', `Generated on ${new Date().toLocaleDateString()}`]
+          }
+        },
         files: [
           ...getFiles({componentName: 'global', format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
         ]

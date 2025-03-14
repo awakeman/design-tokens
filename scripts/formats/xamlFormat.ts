@@ -22,14 +22,16 @@ interface XamlTokenFormatters {
     [type: string]: XamlTokenFormatter
 }
 
-export function xamlFormat(args: FormatFnArguments): string {
+export async function xamlFormat(args: FormatFnArguments): Promise<string> {
     const { dictionary, options } = args;
     
+    const doc = create();
     if(options.fileHeader) {
         if (typeof options.fileHeader === 'function') {
-            options.fileHeader()
+            const header = await options.fileHeader(undefined, options);
+            doc.com(header.reduce((a,b) => `${a}\n${b}`));
         } else {
-            options.fileHeader
+            doc.com(options.fileHeader)
         }
     }
 
@@ -47,7 +49,7 @@ export function xamlFormat(args: FormatFnArguments): string {
         'sizing': simpleDouble,
     }
 
-    let root = create().ele(ns_default, 'ResourceDictionary', {
+    const root = doc.ele(ns_default, 'ResourceDictionary', {
         'xmlns:x': ns_x,
         'xmlns:system': ns_system
     });
@@ -81,17 +83,6 @@ function original({original}: TransformedToken, options: Config & LocalOptions) 
 function value({$value, value}: DesignToken, {usesDtcg} : Config & LocalOptions ) {
     return usesDtcg ? $value : value;
 }
-
-function getResource(reference: string, type: 'Static' | 'Dynamic', {unfilteredTokens, tokens}: Dictionary): string | undefined {
-    if (usesReferences(reference) && reference.match(/^\{.+\}$/)) {
-        const refs = getReferences(reference, unfilteredTokens ?? tokens)
-        const name = refs[0]?.name
-        if (name) return `{${type}Resource ${name}}`
-    }
-    return undefined
-};
-
-function getStaticResource(reference: string, dictionary: Dictionary) { return getResource(reference, 'Static', dictionary) }
 
 function findNodeByKey(key: string, root: XmlBuilder) : XmlBuilder | undefined {
     return root.find((node : XmlBuilder) =>
@@ -169,7 +160,11 @@ function typography(token: TransformedToken, { dictionary, options }: FormatFnAr
     const style = create().ele('Style').att(ns_x, 'Key', token.name).att('TargetType', 'TextBlock');
     if (fontFamily) {
         const key = `${token.name}_FontFamily`;
-        root.ele(ns_default, 'FontFamily').att(ns_x, 'Key', key).txt(`fonts/#${fontFamily}`);
+        const family = root.ele(ns_default, 'FontFamily');
+        family.txt(`pack://application:,,,/Sage.DesignSystem.Theme;component/Fonts/#${fontFamily}`);
+        family.txt(fontFamily);
+        family.att(ns_x, 'Key', key)
+
         style.ele(ns_default, 'Setter', { 'Property': 'FontFamily', 'Value': `{StaticResource ${key}}`});
     }
 
@@ -188,6 +183,9 @@ function typography(token: TransformedToken, { dictionary, options }: FormatFnAr
     const lineHeightKey = `${token.name}_LineHeight`
     if (lineHeight && lineHeight > 0 && fontSize) {
         // TODO: handle css clamp() values
+        // syntax: clamp(min, value, max)
+        // clamps the value, which is generally a
+        // dynamic/proportional value, between min and max
         root.ele(ns_system, 'Double').att(ns_x, 'Key', lineHeightKey).txt(fontSize * lineHeight);
     }
     else {
@@ -197,7 +195,7 @@ function typography(token: TransformedToken, { dictionary, options }: FormatFnAr
 
     if (+paragraphSpacing) {
         const key = `${token.name}_ParagraphSpacing`
-        root.ele(ns_default, 'Thickness', { 'Bottom': paragraphSpacing }).att(ns_x, 'Key', `${token.name}_ParagraphSpacing`);
+        root.ele(ns_default, 'Thickness', { 'Bottom': paragraphSpacing }).att(ns_x, 'Key', key);
         style.ele(ns_default, 'Setter', { 'Property': 'Padding', 'Value': `{StaticResource ${key}}`});
     }
 
