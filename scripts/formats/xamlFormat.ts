@@ -202,7 +202,7 @@ function typography(token: TransformedToken, { dictionary, options }: FormatFnAr
 
     if (textDecoration) {
         const key = `${token.name}_TextDecorations`
-        root.ele(ns_default, 'TextDecoration').att(ns_x, 'Key', key).att(ns_default, 'Location', textDecoration);
+        root.ele(ns_default, 'TextDecorationCollection').txt(textDecoration).att(ns_x, 'Key', key);
         style.ele(ns_default, 'Setter', { 'Property': 'TextDecorations', 'Value': `{StaticResource ${key}}`});
     }
     root.import(style);
