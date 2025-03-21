@@ -8,6 +8,7 @@ import { Config, DesignToken, File, FileHeader } from 'style-dictionary/types'
 import { FilterComponent } from './utils/filter-component.js'
 import { xamlFormat } from './formats/xamlFormat.js'
 import { deflate } from "zlib"
+import { TransformedToken } from "style-dictionary"
 
 
 const components = fs.readdirSync('./data/tokens/components/')
@@ -64,6 +65,25 @@ const getMode = ({modeName = '', format, subType, suffix}: IMode): File[] => {
   ]
 }
 
+const getGlobal = ({format, subType, suffix}: IMode): File[] => {
+  const componentArray: File[] = []
+
+  components.forEach((component) => {
+    const componentName = component.split('.json')[0]
+
+    if (!componentName) {
+      throw new Error(
+        `Component name not found for ${component}`)
+    }
+
+    componentArray.push(...getFiles({componentName, modeName: 'global', format, subType, suffix, outputRefs: true}))
+  })
+  
+  return [
+    ...getFiles({componentName: 'global', modeName: 'global', format, subType, suffix}),
+    ...componentArray
+  ]
+}
 const getFiles = ({componentName, modeName = '', format, subType, suffix, outputRefs = false}: IFiles): File[] => {
   const hasRefs = suffix === 'css' || suffix === 'scss'
 
@@ -86,10 +106,16 @@ const getFiles = ({componentName, modeName = '', format, subType, suffix, output
 
   const path = getPath(componentName).trim()
 
+  var filter = (token: TransformedToken, options: Config) => (options.usesDtcg ? token.$type : token.type) === 'color';
+  if(modeName === 'global') {
+    filter = (token: TransformedToken, options: Config) => (options.usesDtcg ? token.$type : token.type) !== 'color';
+  }
   return [
     {
       destination: `${subType}/${path}.${suffix}`,
-      filter: (token: DesignToken) => FilterComponent(token, componentName),
+      filter: (token: TransformedToken, options: Config) =>
+        FilterComponent(token, componentName)
+        && filter(token, options),
       format,
       options: {
         outputReferences: outputRefs
@@ -105,9 +131,11 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
     source: [
       './data/tokens/primitives.json',
       './data/tokens/global/*.json',
-      `./data/tokens/screensize/${sizeName}.json`
+      `./data/tokens/screensize/${sizeName}.json`,
+      './data/tokens/modes/light.json',
+      './data/tokens/components/*.json'
     ],
-    preprocessors: ['tokens-studio'],
+    // preprocessors: ['tokens-studio'],
     platforms: {
       //   css: {
       //     buildPath: 'dist/css/',
@@ -150,7 +178,8 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
           showFileHeader: true
         },
         files: [
-          ...getFiles({componentName: 'global', format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
+          // ...getFiles({componentName: 'global', format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
+          ...getGlobal({format: 'custom/xaml/wpf', subType: subType, suffix: 'xaml'}),
         ]
       },
       // todo: debug android build
