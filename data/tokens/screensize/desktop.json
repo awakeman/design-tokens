@@ -1,0 +1,98 @@
+{
+  "primitives": {
+    "size": {
+      "SCALE": {
+        "$type": "sizing",
+        "$value": "6",
+        "$description": "SCALE is the base-scale of all size-related tokens (size, space, dimension). It's set to 8px as this is our default multiplier used across the majority of components. If you change it, it will change all size-related tokens."
+      }
+    }
+  },
+  "global": {
+    "size": {
+      "breakpoint-min-width": {
+        "$type": "sizing",
+        "$value": "{primitives.size.breakpoint.0}"
+      }
+    },
+    "space": {
+      "macroScale": {
+        "$type": "spacing",
+        "$value": "0.75",
+        "$description": "Spacing scale for small screens."
+      }
+    },
+    "fontSize": {
+      "adaptive": {
+        "step-2": {
+          "$type": "fontSizes",
+          "$value": "9"
+        },
+        "step-1": {
+          "$type": "fontSizes",
+          "$value": "10.5"
+        },
+        "step0": {
+          "$type": "fontSizes",
+          "$value": "12"
+        },
+        "step1": {
+          "$type": "fontSizes",
+          "$value": "14"
+        },
+        "step2": {
+          "$type": "fontSizes",
+          "$value": "15"
+        },
+        "step3": {
+          "$type": "fontSizes",
+          "$value": "19"
+        },
+        "step4": {
+          "$type": "fontSizes",
+          "$value": "22"
+        },
+        "step5": {
+          "$type": "fontSizes",
+          "$value": "25"
+        },
+        "step6": {
+          "$type": "fontSizes",
+          "$value": "29"
+        },
+        "step7": {
+          "$type": "fontSizes",
+          "$value": "34"
+        },
+        "step8": {
+          "$type": "fontSizes",
+          "$value": "39"
+        },
+        "step9": {
+          "$type": "fontSizes",
+          "$value": "46"
+        },
+        "step10": {
+          "$type": "fontSizes",
+          "$value": "53"
+        }
+      }
+    }
+  },
+  "page": {
+    "space": {
+      "x": {
+        "L": {
+          "$type": "spacing",
+          "$value": "{global.space.macro.S}"
+        }
+      },
+      "y": {
+        "L": {
+          "$type": "spacing",
+          "$value": "{global.space.macro.S}"
+        }
+      }
+    }
+  }
+}
