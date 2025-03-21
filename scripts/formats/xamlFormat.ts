@@ -169,7 +169,7 @@ function typography(token: TransformedToken, { dictionary, options }: FormatFnAr
         style.ele(ns_default, 'Setter', { 'Property': 'FontFamily', 'Value': `{StaticResource ${key}}`});
     }
 
-    if (fontSize) {
+    if (fontSize && !Number.isNaN(+fontSize)) {
         const key = `${token.name}_FontSize`;
         root.ele(ns_system, 'Double').att(ns_x, 'Key', key).txt(fontSize);
         style.ele(ns_default, 'Setter', { 'Property': 'FontSize', 'Value': `{StaticResource ${key}}`});
