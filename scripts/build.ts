@@ -135,7 +135,7 @@ const getGlobalConfig = ({contextName, sizeName}: IConfig) : Config => {
       './data/tokens/modes/light.json',
       './data/tokens/components/*.json'
     ],
-    // preprocessors: ['tokens-studio'],
+    preprocessors: ['tokens-studio'],
     platforms: {
       //   css: {
       //     buildPath: 'dist/css/',

@@ -38,31 +38,31 @@
         },
         "step1": {
           "$type": "fontSizes",
-          "$value": "14"
+          "$value": "14.25"
         },
         "step2": {
           "$type": "fontSizes",
-          "$value": "15"
+          "$value": "16.5"
         },
         "step3": {
           "$type": "fontSizes",
-          "$value": "19"
+          "$value": "18.75"
         },
         "step4": {
           "$type": "fontSizes",
-          "$value": "22"
+          "$value": "21.75"
         },
         "step5": {
           "$type": "fontSizes",
-          "$value": "25"
+          "$value": "25.5"
         },
         "step6": {
           "$type": "fontSizes",
-          "$value": "29"
+          "$value": "29.25"
         },
         "step7": {
           "$type": "fontSizes",
-          "$value": "34"
+          "$value": "33.75"
         },
         "step8": {
           "$type": "fontSizes",
@@ -70,11 +70,11 @@
         },
         "step9": {
           "$type": "fontSizes",
-          "$value": "46"
+          "$value": "45.75"
         },
         "step10": {
           "$type": "fontSizes",
-          "$value": "53"
+          "$value": "53.25"
         }
       }
     }
