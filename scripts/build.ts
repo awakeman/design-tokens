@@ -228,7 +228,8 @@ const getModeConfig = ({contextName, modeName, sizeName}: IConfig) : Config => {
       './data/tokens/global/*.json',
       `./data/tokens/screensize/${sizeName}.json`,
       `./data/tokens/modes/${modeName}.json`,
-      './data/tokens/components/*.json'
+      './data/tokens/components/*.json',
+      `./data/tokens/context/${contextName}.json`
     ],
     platforms: {
       css: {

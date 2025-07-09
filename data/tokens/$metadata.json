@@ -25,9 +25,9 @@
     "components/status",
     "components/tab",
     "components/table",
+    "components/typography",
     "context/product",
     "context/frozenproduct",
-    "context/marketing",
     "screensize/large",
     "screensize/small"
   ]

@@ -71,6 +71,25 @@
           }
         }
       },
+      "datepicker": {
+        "pr": {
+          "S": {
+            "$type": "spacing",
+            "$value": "0",
+            "$description": "right padding on small date picker input"
+          },
+          "M": {
+            "$type": "spacing",
+            "$value": "0",
+            "$description": "right padding on medium date picker input"
+          },
+          "L": {
+            "$type": "spacing",
+            "$value": "0",
+            "$description": "right padding on large date picker input"
+          }
+        }
+      },
       "dropdown": {
         "button": {
           "x": {
@@ -304,6 +323,25 @@
               "$type": "spacing",
               "$value": "{global.space.micro.S}",
               "$description": "space between pills inside pill wrapper"
+            }
+          }
+        },
+        "trigger": {
+          "subtle": {
+            "S": {
+              "$type": "spacing",
+              "$value": "{global.space.micro.S}",
+              "$description": "Left and right padding on subtle dropdown triggers."
+            },
+            "M": {
+              "$type": "spacing",
+              "$value": "{global.space.micro.S}",
+              "$description": "Left and right padding on subtle dropdown triggers."
+            },
+            "L": {
+              "$type": "spacing",
+              "$value": "{global.space.micro.S}",
+              "$description": "Left and right padding on subtle dropdown triggers."
             }
           }
         }
@@ -572,6 +610,27 @@
           }
         }
       },
+      "labelset": {
+        "inline": {
+          "pt": {
+            "S": {
+              "$type": "spacing",
+              "$value": "31",
+              "$description": "top padding on S inline input labelsets"
+            },
+            "M": {
+              "$type": "spacing",
+              "$value": "35",
+              "$description": "top padding on inline input labelsets"
+            },
+            "L": {
+              "$type": "spacing",
+              "$value": "35",
+              "$description": "top padding on inline L input labelsets"
+            }
+          }
+        }
+      },
       "rating": {
         "xg": {
           "M": {
@@ -583,25 +642,6 @@
             "$type": "spacing",
             "$value": "{global.space.micro.XXL}",
             "$description": "medium gap between rating stars"
-          }
-        }
-      },
-      "layout": {
-        "stack": {
-          "S": {
-            "$type": "spacing",
-            "$value": "{global.space.macro.XS}",
-            "$description": "Spacing between horizontal and vertical S form components"
-          },
-          "M": {
-            "$type": "spacing",
-            "$value": "{global.space.macro.S}",
-            "$description": "Spacing between horizontal and vertical M form components"
-          },
-          "L": {
-            "$type": "spacing",
-            "$value": "{global.space.macro.M}",
-            "$description": "Spacing between horizontal and vertical L form components"
           }
         }
       },
@@ -1115,7 +1155,7 @@
       "calendar": {
         "bg-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "bg-disabled": {
           "$type": "color",
@@ -1127,15 +1167,15 @@
         },
         "bg-hover": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.hoverAlt}"
+          "$value": "{modes.color.interactive.monochrome.hoverAlt}"
         },
         "border-duration": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "text-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
+          "$value": "{modes.color.interactive.monochrome.withActive}"
         },
         "text-alt": {
           "$type": "color",
@@ -1150,15 +1190,15 @@
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.content}"
         },
-        "text-enabled": {
+        "text-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.content}"
         },
         "text-hover": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withHover}"
+          "$value": "{modes.color.interactive.monochrome.withHover}"
         },
-        "textAlt-enabled": {
+        "textAlt-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.contentAlt}"
         }
@@ -1171,23 +1211,28 @@
         },
         "label-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
+          "$value": "{modes.color.interactive.monochrome.withActive}"
         },
         "label-alt": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.default}"
+          "$value": "{modes.color.interactive.monochrome.default}"
         },
         "label-disabled": {
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.content}"
         },
-        "label-enabled": {
+        "label-default": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.defaultAlt}"
+          "$value": "{modes.color.interactive.monochrome.defaultAlt}"
         },
         "label-hover": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withHover}"
+          "$value": "{modes.color.interactive.monochrome.withHover}"
+        },
+        "label-subtext": {
+          "$type": "color",
+          "$value": "{modes.color.interactive.monochrome.defaultAlt2}",
+          "$description": "Option subtext."
         }
       },
       "labelset": {
@@ -1227,10 +1272,6 @@
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.default}"
         },
-        "bg-enabled": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.dataEntry.default}"
-        },
         "bg-hover": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.hoverAlt}"
@@ -1243,7 +1284,7 @@
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.default}"
         },
-        "border-enabled": {
+        "border-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.withDefault}"
         },
@@ -1272,10 +1313,6 @@
         "icon-disabled": {
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.icon}"
-        },
-        "icon-enabled": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.dataEntry.content}"
         },
         "icon-hover": {
           "$type": "color",
@@ -1306,11 +1343,6 @@
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.content}"
         },
-        "text-enabled": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.dataEntry.content}",
-          "$description": "Dropdown text (subtle dropdown)."
-        },
         "text-hover": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.withHover}",
@@ -1324,7 +1356,7 @@
       "switch": {
         "bg-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "bg-activedisabled": {
           "$type": "color",
@@ -1335,7 +1367,7 @@
           "$value": "{modes.color.interactive.inactive.defaultAlt}",
           "$description": "for switch"
         },
-        "bg-enabled": {
+        "bg-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.default}",
           "$description": "for switch"
@@ -1352,13 +1384,13 @@
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.default}"
         },
-        "border-enabled": {
+        "border-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.monochrome.subtle.defaultAlt}"
         },
         "fg-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
+          "$value": "{modes.color.interactive.monochrome.withActive}"
         },
         "fg-activedisabled": {
           "$type": "color",
@@ -1368,7 +1400,7 @@
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.default}"
         },
-        "fg-enabled": {
+        "fg-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.monochrome.subtle.defaultAlt}"
         },
@@ -1384,11 +1416,11 @@
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.default}"
         },
-        "label-enabled": {
+        "label-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.contentAlt}"
         },
-        "icon-enabled": {
+        "icon-default": {
           "$type": "color",
           "$value": "{modes.color.interactive.dataEntry.contentAlt}"
         }
@@ -1499,6 +1531,13 @@
           "$value": "{global.radius.container.XS}",
           "$description": "Calendar (today indicator)"
         }
+      },
+      "texteditor": {
+        "AIcontainer": {
+          "$type": "borderRadius",
+          "$value": "{global.radius.interactive.S}",
+          "$description": "container for draft with copilot form fields"
+        }
       }
     },
     "borderwidth": {
@@ -1572,68 +1611,6 @@
         "$type": "boxShadow",
         "$value": "{popover.boxshadow.container}",
         "$description": "REF POPOVER. popover container"
-      }
-    },
-    "typography": {
-      "adaptive": {
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.L}"
-          }
-        },
-        "default": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.L}"
-          }
-        }
-      },
-      "responsive": {
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.L}"
-          }
-        },
-        "default": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.L}"
-          }
-        }
       }
     }
   }

@@ -14,7 +14,7 @@
           },
           "bg-hover": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.hover}"
+            "$value": "{modes.color.interactive.monochrome.hover}"
           },
           "border-default": {
             "$type": "color",
@@ -23,26 +23,26 @@
           },
           "label-default": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.default}"
+            "$value": "{modes.color.interactive.monochrome.default}"
           },
           "label-hover": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.default}"
+            "$value": "{modes.color.interactive.monochrome.default}"
           }
         },
         "harsh": {
           "bg-alt": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.default}",
+            "$value": "{modes.color.interactive.monochrome.default}",
             "$description": "header alt"
           },
           "bg-default": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.defaultAlt}"
+            "$value": "{modes.color.interactive.monochrome.defaultAlt}"
           },
           "bg-hover": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.hover}"
+            "$value": "{modes.color.interactive.monochrome.hover}"
           },
           "border-default": {
             "$type": "color",
@@ -50,23 +50,15 @@
           },
           "label-default": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.withDefault}"
+            "$value": "{modes.color.interactive.monochrome.withDefault}"
           },
           "label-hover": {
             "$type": "color",
-            "$value": "{modes.color.interactive.monochrome.generic.default}"
+            "$value": "{modes.color.interactive.monochrome.default}"
           }
         }
       },
       "row": {
-        "bg-activated": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.primary.default}"
-        },
-        "bg-active": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
-        },
         "bg-default": {
           "$type": "color",
           "$value": "{modes.color.generic.bg.nought}"
@@ -79,7 +71,7 @@
         "bg-alt2": {
           "$type": "color",
           "$value": "{modes.color.generic.bg.soft}",
-          "$description": "Zebra stripes combined with child rows."
+          "$description": "Zebra stripes combined with child rows. Highlighted rows."
         },
         "bg-alt3": {
           "$type": "color",
@@ -88,19 +80,15 @@
         },
         "bg-hover": {
           "$type": "color",
-          "$value": "{modes.color.generic.bg.soft}"
+          "$value": "{modes.color.generic.bg.moderate}"
+        },
+        "bg-selected": {
+          "$type": "color",
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "border-default": {
           "$type": "color",
           "$value": "{modes.color.generic.fg.delicate}"
-        },
-        "label-activated": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
-        },
-        "label-active": {
-          "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
         },
         "label-default": {
           "$type": "color",
@@ -109,12 +97,16 @@
         "label-hover": {
           "$type": "color",
           "$value": "{modes.color.generic.content.extreme}"
+        },
+        "label-selected": {
+          "$type": "color",
+          "$value": "{modes.color.interactive.monochrome.withActive}"
         }
       },
       "footer": {
         "bg-default": {
           "$type": "color",
-          "$value": "{modes.color.generic.bg.soft}"
+          "$value": "{modes.color.generic.bg.moderate}"
         },
         "border-default": {
           "$type": "color",
@@ -123,7 +115,7 @@
         },
         "label-default": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.default}"
+          "$value": "{modes.color.interactive.monochrome.default}"
         }
       }
     },
@@ -135,27 +127,56 @@
       }
     },
     "boxshadow": {
-      "parentrow": {
+      "firstchild": {
         "$type": "boxShadow",
-        "$value": "{global.boxshadow.container.far}"
+        "$value": "{global.boxshadow.inner.near}"
+      },
+      "column": {
+        "sticky-left": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.cleanedge.near-right}",
+          "$description": "Right shadow on left hand sticky column."
+        },
+        "sticky-right": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.cleanedge.near-left}",
+          "$description": "Left shadow on right hand sticky column."
+        }
+      },
+      "row": {
+        "dragging": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.interactive.drag}",
+          "$description": "dragging state for a table row"
+        }
       }
     },
     "borderwidth": {
       "thin": {
         "$type": "borderWidth",
         "$value": "{global.borderwidth.XS}",
-        "$description": "Table border"
+        "$description": "Table border. Optional choice of cell border width."
+      },
+      "medium": {
+        "$type": "borderWidth",
+        "$value": "{global.borderwidth.S}",
+        "$description": "Header border for subtle. Optional choice of cell border width."
       },
       "thick": {
         "$type": "borderWidth",
-        "$value": "{global.borderwidth.S}",
-        "$description": "header border for subtle"
+        "$value": "{global.borderwidth.M}",
+        "$description": "Optional choice of cell border width."
       }
     },
     "space": {
       "none": {
         "$type": "spacing",
         "$value": "{global.space.none}"
+      },
+      "yg": {
+        "$type": "spacing",
+        "$value": "{global.space.micro.S}",
+        "$description": "space between table and pagination"
       },
       "row": {
         "x": {
@@ -291,99 +312,25 @@
         }
       },
       "icon": {
+        "XS": {
+          "$type": "sizing",
+          "$value": "{global.size.icon.S}"
+        },
+        "S": {
+          "$type": "sizing",
+          "$value": "{global.size.icon.M}"
+        },
         "M": {
           "$type": "sizing",
           "$value": "{global.size.icon.M}"
-        }
-      }
-    },
-    "typography": {
-      "adaptive": {
-        "heading": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.L}"
-          }
         },
-        "default": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.L}"
-          }
+        "L": {
+          "$type": "sizing",
+          "$value": "{global.size.icon.L}"
         },
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.L}"
-          }
-        }
-      },
-      "responsive": {
-        "heading": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.L}"
-          }
-        },
-        "default": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.L}"
-          }
-        },
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.L}"
-          }
+        "XL": {
+          "$type": "sizing",
+          "$value": "{global.size.icon.XL}"
         }
       }
     }

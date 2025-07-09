@@ -1,3 +1,258 @@
+## [16.0.0](https://github.com/Sage/design-tokens/compare/v15.4.0...v16.0.0) (2025-06-27)
+
+### ⚠ BREAKING CHANGES
+
+* **Container:** Added inverse tokens to support dark variant of sidebar (#540)
+
+### Features
+
+* **Container:** Added inverse tokens to support dark variant of sidebar ([#540](https://github.com/Sage/design-tokens/issues/540)) ([4bfe74f](https://github.com/Sage/design-tokens/commit/4bfe74fa729a913df7ac5849822892146673d885))
+
+## [15.4.0](https://github.com/Sage/design-tokens/compare/v15.3.0...v15.4.0) (2025-06-26)
+
+### Features
+
+* **Label Set:** Add top adding to inline labelsets in order to align baseline of input text and label text. ([#539](https://github.com/Sage/design-tokens/issues/539)) ([c7507ca](https://github.com/Sage/design-tokens/commit/c7507ca832e1e0337b61b8c77ef7226fa2c3287e))
+
+## [15.3.0](https://github.com/Sage/design-tokens/compare/v15.2.2...v15.3.0) (2025-06-18)
+
+### Features
+
+* **Table:** Add and edit color tokens. ([#536](https://github.com/Sage/design-tokens/issues/536)) ([5976e12](https://github.com/Sage/design-tokens/commit/5976e12559e4a335aa252b3adb0299587c96e165))
+
+## [15.2.2](https://github.com/Sage/design-tokens/compare/v15.2.1...v15.2.2) (2025-06-18)
+
+### Bug Fixes
+
+* **Mode and refactor Themes:** Revert one mode value, and sync theme. ([#535](https://github.com/Sage/design-tokens/issues/535)) ([8522235](https://github.com/Sage/design-tokens/commit/8522235a9207ba7a97670c6b1c91b63b17819fa2))
+
+## [15.2.1](https://github.com/Sage/design-tokens/compare/v15.2.0...v15.2.1) (2025-06-16)
+
+### Bug Fixes
+
+* **build:** include context tokens into build script ([86ab97c](https://github.com/Sage/design-tokens/commit/86ab97c452978d81039de60abcea8807dcd56296))
+
+## [15.2.0](https://github.com/Sage/design-tokens/compare/v15.1.0...v15.2.0) (2025-06-16)
+
+### Features
+
+* **Dropdown option subtext:** ([#532](https://github.com/Sage/design-tokens/issues/532)) ([f9e3907](https://github.com/Sage/design-tokens/commit/f9e39077545b248639a035cb6df74ffe429eb5a9))
+
+## [15.1.0](https://github.com/Sage/design-tokens/compare/v15.0.0...v15.1.0) (2025-06-11)
+
+### Features
+
+* **Left Navigation:** Increase parent container token width to 146px to allow for german translations ([#529](https://github.com/Sage/design-tokens/issues/529)) ([42d6509](https://github.com/Sage/design-tokens/commit/42d6509c95c0aab1b0b25e8cc44e36dfcab3f489))
+
+## [15.0.0](https://github.com/Sage/design-tokens/compare/v14.9.1...v15.0.0) (2025-06-11)
+
+### ⚠ BREAKING CHANGES
+
+* **Marketing:** remove support for marketing theme as its not consumed by sage.com  (#527)
+
+### Miscellaneous Chores
+
+* **Marketing:** remove support for marketing theme as its not consumed by sage.com  ([#527](https://github.com/Sage/design-tokens/issues/527)) ([76bd0a8](https://github.com/Sage/design-tokens/commit/76bd0a8d48c0815eb849d89af10506e8ee6cdf9a))
+
+## [14.9.1](https://github.com/Sage/design-tokens/compare/v14.9.0...v14.9.1) (2025-06-11)
+
+### Bug Fixes
+
+* **Nav:** Adjust nav to allow more characters to be passed in. ([#526](https://github.com/Sage/design-tokens/issues/526)) ([c6c086d](https://github.com/Sage/design-tokens/commit/c6c086db393b74453c1ab0377fdd023a186acc40))
+
+## [14.9.0](https://github.com/Sage/design-tokens/compare/v14.8.0...v14.9.0) (2025-06-04)
+
+### Features
+
+* **Typography:** Add responsive and adaptive section tokens to: ([#523](https://github.com/Sage/design-tokens/issues/523)) ([44026e6](https://github.com/Sage/design-tokens/commit/44026e6af07902787a2043119198d70e650b6013))
+
+## [14.8.0](https://github.com/Sage/design-tokens/compare/v14.7.0...v14.8.0) (2025-06-03)
+
+### Features
+
+* **Table border width:** Edit and add table border-width tokens. ([847c877](https://github.com/Sage/design-tokens/commit/847c877b7d22bf7162841ed9aee192c5f009a23a)), closes [#522](https://github.com/Sage/design-tokens/issues/522)
+
+## [14.7.0](https://github.com/Sage/design-tokens/compare/v14.6.0...v14.7.0) (2025-06-02)
+
+### Features
+
+* **Dialog:** add dialog max-width tokens to give parity to current carbon offering of sizes. ([044f4a6](https://github.com/Sage/design-tokens/commit/044f4a65db942c09ebeec8437215d1f7ed579c92))
+
+## [14.6.0](https://github.com/Sage/design-tokens/compare/v14.5.0...v14.6.0) (2025-05-30)
+
+### Features
+
+* **Buttons:** adding tokens for XS standard and icon only buttons to be supported ([#518](https://github.com/Sage/design-tokens/issues/518)) ([835477c](https://github.com/Sage/design-tokens/commit/835477c156cf82d7d0af0b47eb05210a7cf1f9de))
+
+## [14.5.0](https://github.com/Sage/design-tokens/compare/v14.4.0...v14.5.0) (2025-05-28)
+
+### Features
+
+* **typography:** add heading, subheading and body font family tokens to allow for marketing contexts overrides. ([70110d0](https://github.com/Sage/design-tokens/commit/70110d0f1272a2c8634a3c618d2eb10bb364897e))
+
+## [14.4.0](https://github.com/Sage/design-tokens/compare/v14.3.0...v14.4.0) (2025-05-28)
+
+### Features
+
+* **Date Picker:** add right padding tokens so that subtle icon only buttons feel visually balanced on date picker. ([3f1e9f4](https://github.com/Sage/design-tokens/commit/3f1e9f4d0ce112045bedb8e06029c98c6d486169))
+
+## [14.3.0](https://github.com/Sage/design-tokens/compare/v14.2.0...v14.3.0) (2025-05-28)
+
+### Features
+
+* **Table first child shadow:** ([#512](https://github.com/Sage/design-tokens/issues/512)) ([5ec9f71](https://github.com/Sage/design-tokens/commit/5ec9f717f789e412a88a46381986d980983c5a84))
+
+## [14.2.0](https://github.com/Sage/design-tokens/compare/v14.1.0...v14.2.0) (2025-05-28)
+
+### Features
+
+* **Pill important color:** Add many status.color.pill.important tokens. ([#511](https://github.com/Sage/design-tokens/issues/511)) ([7f9e791](https://github.com/Sage/design-tokens/commit/7f9e7910c010be37fa1109fef30b0129eafa73d3))
+
+## [14.1.0](https://github.com/Sage/design-tokens/compare/v14.0.1...v14.1.0) (2025-05-27)
+
+### Features
+
+* **Colors for Pills:** Add color tokens for Pill, update Table icon size, add Important status color tokens to modes. ([#510](https://github.com/Sage/design-tokens/issues/510)) ([45fb73a](https://github.com/Sage/design-tokens/commit/45fb73afdbf8a7fe790c413932eb164bfac0ac7e))
+
+## [14.0.1](https://github.com/Sage/design-tokens/compare/v14.0.0...v14.0.1) (2025-05-19)
+
+### Bug Fixes
+
+* **Button:** changing tertiary button border opacity to pass 3:1 cont… ([#506](https://github.com/Sage/design-tokens/issues/506)) ([5c5da26](https://github.com/Sage/design-tokens/commit/5c5da26d31d1ab67c385ce188068c841e9eb2e4d))
+
+## [14.0.0](https://github.com/Sage/design-tokens/compare/v13.2.0...v14.0.0) (2025-05-19)
+
+### ⚠ BREAKING CHANGES
+
+* **Spinner:** Changing name of ring to spinner to align with the component name. Add XS size spinner for consumption inside buttons, file upload and switch. (#504)
+
+### Features
+
+* **Spinner:** Changing name of ring to spinner to align with the component name. Add XS size spinner for consumption inside buttons, file upload and switch. ([#504](https://github.com/Sage/design-tokens/issues/504)) ([dacb455](https://github.com/Sage/design-tokens/commit/dacb4559b67b4bda7723d88f65fdb8c7e954e941))
+
+## [13.2.0](https://github.com/Sage/design-tokens/compare/v13.1.0...v13.2.0) (2025-05-16)
+
+### Features
+
+* **Button, Focus and Link:** Add new inverse tokens ([#501](https://github.com/Sage/design-tokens/issues/501)) ([563bc2d](https://github.com/Sage/design-tokens/commit/563bc2d84f2276167ea19390162f7832fe066cc4))
+* **Table pagination:** Add spacing token for use between table and table pagination. ([#503](https://github.com/Sage/design-tokens/issues/503)) ([14065ae](https://github.com/Sage/design-tokens/commit/14065ae9a0be9241bb9ee31540a9cfcc87b24fe4))
+
+## [13.1.0](https://github.com/Sage/design-tokens/compare/v13.0.1...v13.1.0) (2025-05-16)
+
+### Features
+
+* **Table:** Add box shadows for sticky columns in Table component. ([#500](https://github.com/Sage/design-tokens/issues/500)) ([15d779e](https://github.com/Sage/design-tokens/commit/15d779e2bde49407c490b76f7b54e538e76b0dca))
+
+## [13.0.1](https://github.com/Sage/design-tokens/compare/v13.0.0...v13.0.1) (2025-05-12)
+
+### Bug Fixes
+
+* **Button:** fixing an issue where standard buttons were pulling from inverse tokens accidentally ([#497](https://github.com/Sage/design-tokens/issues/497)) ([3f0c8c1](https://github.com/Sage/design-tokens/commit/3f0c8c1a6537d151664ffc673f021e90eed7658c))
+
+## [13.0.0](https://github.com/Sage/design-tokens/compare/v12.8.1...v13.0.0) (2025-05-12)
+
+### ⚠ BREAKING CHANGES
+
+* **Buttons and Links:** add mid layer inverse tokens and component s… (#495)
+
+### Features
+
+* **Buttons and Links:** add mid layer inverse tokens and component s… ([#495](https://github.com/Sage/design-tokens/issues/495)) ([384b009](https://github.com/Sage/design-tokens/commit/384b0098ef3e81bae43380b448fc4b2a0152ffa3))
+
+## [12.8.1](https://github.com/Sage/design-tokens/compare/v12.8.0...v12.8.1) (2025-05-01)
+
+### Bug Fixes
+
+* **Secondary Nav:** fixing some wrong token values for padding on secondary nav. ([5a88753](https://github.com/Sage/design-tokens/commit/5a88753b7add83211b93565500298ac863b5c2a1))
+
+## [12.8.0](https://github.com/Sage/design-tokens/compare/v12.7.0...v12.8.0) (2025-04-30)
+
+### Features
+
+* **Secondary Navigation:** Add tokens for secondary horizontal navigation and modal navigation options. ([09ecaa3](https://github.com/Sage/design-tokens/commit/09ecaa3001038e67e8678919712852bca82afdd0))
+
+## [12.7.0](https://github.com/Sage/design-tokens/compare/v12.6.0...v12.7.0) (2025-04-30)
+
+### Features
+
+* **Buttons:** add XS button tokens for use on tables ([#487](https://github.com/Sage/design-tokens/issues/487)) ([7460895](https://github.com/Sage/design-tokens/commit/74608958bbafb1781831bc38217dcf29fb4d29a0))
+
+## [12.6.0](https://github.com/Sage/design-tokens/compare/v12.5.3...v12.6.0) (2025-04-22)
+
+### Features
+
+* **table:** Add icon size tokens for XS, S, L and XL. ([#486](https://github.com/Sage/design-tokens/issues/486)) ([37e2043](https://github.com/Sage/design-tokens/commit/37e204394e345628f250e47c681a21d82537b1f8))
+
+## [12.5.3](https://github.com/Sage/design-tokens/compare/v12.5.2...v12.5.3) (2025-04-17)
+
+### Bug Fixes
+
+* **Primitive Shadows:** Fix a broken shadow token for when we want to override shadows to be set to 'none'. ([#484](https://github.com/Sage/design-tokens/issues/484)) ([32f2195](https://github.com/Sage/design-tokens/commit/32f21953890f8840e3c2c093679a3e1abe4ea209))
+
+## [12.5.2](https://github.com/Sage/design-tokens/compare/v12.5.1...v12.5.2) (2025-04-16)
+
+### Bug Fixes
+
+* **Typography:** adjusting profile typography to be larger in size fo… ([#482](https://github.com/Sage/design-tokens/issues/482)) ([359ad2d](https://github.com/Sage/design-tokens/commit/359ad2d2be0c96fbdbaafab84af935217abecdeb))
+
+## [12.5.1](https://github.com/Sage/design-tokens/compare/v12.5.0...v12.5.1) (2025-04-16)
+
+### Bug Fixes
+
+* **typography:** updating typography based on user testing. Primitive… ([#477](https://github.com/Sage/design-tokens/issues/477)) ([7ca90b1](https://github.com/Sage/design-tokens/commit/7ca90b1ea1f1ee38fec60086a68cf1e7144e8f67))
+
+## [12.5.0](https://github.com/Sage/design-tokens/compare/v12.4.0...v12.5.0) (2025-04-16)
+
+### Features
+
+* **Text Editor:** Add 4px border-radius token for ai container with with draft with copilot container. ([f1fc703](https://github.com/Sage/design-tokens/commit/f1fc70398d48f93a41da041e3c8ef66691597a60))
+
+## [12.4.0](https://github.com/Sage/design-tokens/compare/v12.3.0...v12.4.0) (2025-04-15)
+
+### Features
+
+* **Subtle Button:** add subtle icon only padding tokens ([#478](https://github.com/Sage/design-tokens/issues/478)) ([23f8108](https://github.com/Sage/design-tokens/commit/23f8108c1a629792c82ba2995b351b163bd59d18))
+
+## [12.3.0](https://github.com/Sage/design-tokens/compare/v12.2.0...v12.3.0) (2025-04-09)
+
+### Features
+
+* **status color and profile selector:** Additions  ([#476](https://github.com/Sage/design-tokens/issues/476)) ([f2e65e7](https://github.com/Sage/design-tokens/commit/f2e65e793e6be4b9038dc5ecbfc63b81d1fd55d5))
+
+## [12.2.0](https://github.com/Sage/design-tokens/compare/v12.1.0...v12.2.0) (2025-04-07)
+
+### Features
+
+* **left navigation:** add vertical gap tokens tokens for vertical nav and fix grandchild indentation padding. ([dfab733](https://github.com/Sage/design-tokens/commit/dfab7339b79b63531c94187bdd292d480652d5be))
+
+## [12.1.0](https://github.com/Sage/design-tokens/compare/v12.0.1...v12.1.0) (2025-04-02)
+
+### Features
+
+* **Left Nav:** add top margin token for outer containers in left nav ([#472](https://github.com/Sage/design-tokens/issues/472)) ([5a1c80a](https://github.com/Sage/design-tokens/commit/5a1c80a3c2424db6e2c6bb9a5dceb9fa8f5a86ff))
+
+## [12.0.1](https://github.com/Sage/design-tokens/compare/v12.0.0...v12.0.1) (2025-04-02)
+
+### Bug Fixes
+
+* **Leftnav:** fixing left nav colors to pass contrast ratios ([#470](https://github.com/Sage/design-tokens/issues/470)) ([a9539d1](https://github.com/Sage/design-tokens/commit/a9539d1ebd0ac2822a687959803990a098ae9664))
+
+## [12.0.0](https://github.com/Sage/design-tokens/compare/v11.3.0...v12.0.0) (2025-03-31)
+
+### ⚠ BREAKING CHANGES
+
+* **typography:** restructuring typography body tokens to allow for regular and medium font weights to be supported (#468)
+
+### Features
+
+* **typography:** restructuring typography body tokens to allow for regular and medium font weights to be supported ([#468](https://github.com/Sage/design-tokens/issues/468)) ([b89babc](https://github.com/Sage/design-tokens/commit/b89babcebf2bc5b0a839ae855ef557b9a8006a3d))
+
+## [11.3.0](https://github.com/Sage/design-tokens/compare/v11.2.0...v11.3.0) (2025-03-28)
+
+### Features
+
+* **Left Navigation:** Add left navigation tokens ([cf34c65](https://github.com/Sage/design-tokens/commit/cf34c65a68249917089fa3d031591b2bd466ba54))
+
 ## [11.2.0](https://github.com/Sage/design-tokens/compare/v11.1.0...v11.2.0) (2025-03-25)
 
 ### Features

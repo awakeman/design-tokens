@@ -32,6 +32,7 @@
   "devDependencies": {
     "@amanda-mitchell/semantic-release-npm-multiple": "^3.11.1",
     "@oozcitak/dom": "^1.15.10",
+    "@prantlf/jsonlint": "^16.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",

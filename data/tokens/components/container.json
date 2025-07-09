@@ -43,7 +43,7 @@
         },
         "bgFooter-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "border-activated": {
           "$type": "color",
@@ -54,7 +54,7 @@
           "$value": "{modes.color.generic.bg.nought}",
           "$description": "tile footer bg color "
         },
-        "bg-enabled": {
+        "bg-default": {
           "$type": "color",
           "$value": "{modes.color.generic.bg.nought}"
         },
@@ -64,12 +64,12 @@
         },
         "bg-hover": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.hoverAlt}",
+          "$value": "{modes.color.interactive.monochrome.hoverAlt}",
           "$description": "Used for accordion hover backgrounds "
         },
         "border-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "border-alt": {
           "$type": "color",
@@ -77,78 +77,68 @@
           "$description": "Link preview. "
         },
         "borderalt-hover": {
-          "$extensions": {
-            "studio.tokens": {
-              "modify": {
-                "type": "mix",
-                "value": "{modes.color.modifiers.button.hover}",
-                "space": "lch",
-                "color": "{modes.color.modifier.contrastMore} "
-              }
-            }
-          },
           "$type": "color",
-          "$value": "{container.color.interactive.border-alt}",
+          "$value": "{modes.color.interactive.monochrome.default}",
           "$description": "For hover border on Link preview."
         },
         "border-inactive": {
           "$type": "color",
           "$value": "{modes.color.generic.fg.soft}"
         },
-        "border-enabled": {
+        "border-default": {
           "$type": "color",
           "$value": "{modes.color.generic.fg.moderate}"
         },
         "icon-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}",
+          "$value": "{modes.color.interactive.monochrome.active}",
           "$description": "Active chevron for any accordion."
         },
-        "icon-enabled": {
+        "icon-default": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.default}",
+          "$value": "{modes.color.interactive.monochrome.default}",
           "$description": "Enabled chevron for any accordion."
         },
-        "iconAlt-enabled": {
+        "iconAlt-default": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.defaultAlt}",
+          "$value": "{modes.color.interactive.monochrome.defaultAlt}",
           "$description": "Enabled label for subtle accordion."
         },
         "icon-hover": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.default}",
+          "$value": "{modes.color.interactive.monochrome.default}",
           "$description": "Hover chevron for any accordion."
         },
         "labelFooter-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
+          "$value": "{modes.color.interactive.monochrome.withActive}"
         },
         "labelFooter-activated": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.withActive}"
+          "$value": "{modes.color.interactive.monochrome.withActive}"
         },
         "text-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}",
+          "$value": "{modes.color.interactive.monochrome.active}",
           "$description": "Active label for any accordion."
         },
         "text-disabled": {
           "$type": "color",
           "$value": "{modes.color.interactive.inactive.content}"
         },
-        "text-enabled": {
+        "text-default": {
           "$type": "color",
           "$value": "{modes.color.generic.content.harsh}",
           "$description": "Enabled label for standard accordion."
         },
-        "textAlt-enabled": {
+        "textAlt-default": {
           "$type": "color",
           "$value": "{modes.color.generic.content.moderate}",
           "$description": "Enabled label for subtle accordion."
         },
         "text-hover": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.default}",
+          "$value": "{modes.color.interactive.monochrome.default}",
           "$description": "Hover label for any accordion."
         },
         "detailedicon": {
@@ -156,6 +146,13 @@
             "$type": "color",
             "$value": "{modes.color.custom.default}",
             "$description": " "
+          }
+        },
+        "droptarget": {
+          "bg-default": {
+            "$type": "color",
+            "$value": "{modes.color.status.info.default}",
+            "$description": "draggable drop target background color"
           }
         }
       },
@@ -185,7 +182,7 @@
         },
         "border-active": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.active}"
+          "$value": "{modes.color.interactive.monochrome.active}"
         },
         "border-alt": {
           "$type": "color",
@@ -243,6 +240,26 @@
           "bg-positive": {
             "$type": "color",
             "$value": "{modes.color.status.positive.default}"
+          }
+        },
+        "inverse": {
+          "bg-default": {
+            "$type": "color",
+            "$value": "{modes.color.generic.bg.inverse.nought}"
+          },
+          "border-default": {
+            "$type": "color",
+            "$value": "{modes.color.generic.fg.inverse.faint}"
+          },
+          "text-alt": {
+            "$type": "color",
+            "$value": "{modes.color.generic.content.inverse.moderate}",
+            "$description": "for subheadings etc"
+          },
+          "text-default": {
+            "$type": "color",
+            "$value": "{modes.color.generic.content.inverse.harsh}",
+            "$description": "for headings, paragraph text etc "
           }
         }
       }
@@ -305,6 +322,74 @@
           }
         }
       },
+      "dialog": {
+        "maxWidth": {
+          "S": {
+            "$type": "sizing",
+            "$value": "540"
+          },
+          "M": {
+            "$type": "sizing",
+            "$value": "850"
+          },
+          "L": {
+            "$type": "sizing",
+            "$value": "1080"
+          }
+        },
+        "minWidth": {
+          "S": {
+            "$type": "sizing",
+            "$value": "288"
+          },
+          "M": {
+            "$type": "sizing",
+            "$value": "288"
+          },
+          "L": {
+            "$type": "sizing",
+            "$value": "288"
+          }
+        }
+      },
+      "drag": {
+        "droptarget": {
+          "$type": "sizing",
+          "$value": "{global.size.micro.XXS}",
+          "$description": "drop target width or height"
+        }
+      },
+      "drawer": {
+        "minwidth": {
+          "$type": "sizing",
+          "$value": "{container.size.responsive.XL}",
+          "$description": "min-width for drawer component"
+        },
+        "maxwidth": {
+          "$type": "sizing",
+          "$value": "{container.size.responsive.XXXXL}",
+          "$description": "max-width for drawer component"
+        },
+        "closed": {
+          "M": {
+            "$type": "sizing",
+            "$value": "{global.size.macro.M}",
+            "$description": "width for the closed drawer state"
+          }
+        }
+      },
+      "footer": {
+        "M": {
+          "$type": "sizing",
+          "$value": "{global.size.macro.XL}",
+          "$description": "card and tile footers"
+        },
+        "L": {
+          "$type": "sizing",
+          "$value": "{global.size.macro.XS} * 3",
+          "$description": "Dialog, sidebar and drawer footer max-height"
+        }
+      },
       "generic": {
         "emptystate": {
           "illustration": {
@@ -331,27 +416,6 @@
               "$description": "Illustration size for secondary empty states"
             }
           }
-        }
-      },
-      "drawer": {
-        "closed": {
-          "M": {
-            "$type": "sizing",
-            "$value": "{global.size.macro.M}",
-            "$description": "width for the closed drawer state"
-          }
-        }
-      },
-      "footer": {
-        "M": {
-          "$type": "sizing",
-          "$value": "{global.size.macro.XL}",
-          "$description": "card and tile footers"
-        },
-        "L": {
-          "$type": "sizing",
-          "$value": "{global.size.macro.XS} * 3",
-          "$description": "Dialog, sidebar and drawer footer max-height"
         }
       },
       "icon": {
@@ -542,23 +606,6 @@
         "$value": "{global.radius.none}",
         "$description": "Card select (inner adjacent corners), Subscription tile footer top corners"
       },
-      "card": {
-        "moderate": {
-          "$type": "borderRadius",
-          "$value": "{global.radius.container.L}",
-          "$description": "Card (less rounded)"
-        },
-        "curved": {
-          "$type": "borderRadius",
-          "$value": "{global.radius.container.XL}",
-          "$description": "Card (more rounded)"
-        },
-        "sweeping": {
-          "$type": "borderRadius",
-          "$value": "{global.radius.container.XXL}",
-          "$description": "Card largest rounded type"
-        }
-      },
       "carouselslide": {
         "$type": "borderRadius",
         "$value": "{global.radius.container.L}",
@@ -568,13 +615,6 @@
         "$type": "borderRadius",
         "$value": "{global.radius.container.L}",
         "$description": "Color picker container radius"
-      },
-      "blockquote": {
-        "bar": {
-          "$type": "borderRadius",
-          "$value": "{global.radius.circle}",
-          "$description": "radius for blockquote bar"
-        }
       },
       "contacttile": {
         "$type": "borderRadius",
@@ -605,6 +645,16 @@
         "$value": "{global.radius.container.M}",
         "$description": "Note"
       },
+      "nudge": {
+        "$type": "borderRadius",
+        "$value": "{global.radius.container.L}",
+        "$description": "nudge radius"
+      },
+      "profileselector": {
+        "$type": "borderRadius",
+        "$value": "{global.radius.container.M}",
+        "$description": "Profile selector list container."
+      },
       "scrollbar": {
         "$type": "borderRadius",
         "$value": "{global.radius.circle}",
@@ -614,6 +664,30 @@
         "$type": "borderRadius",
         "$value": "{global.radius.container.M}",
         "$description": "Text editor (footer bottom corners) "
+      },
+      "blockquote": {
+        "bar": {
+          "$type": "borderRadius",
+          "$value": "{global.radius.circle}",
+          "$description": "radius for blockquote bar"
+        }
+      },
+      "card": {
+        "moderate": {
+          "$type": "borderRadius",
+          "$value": "{global.radius.container.L}",
+          "$description": "Card (less rounded)"
+        },
+        "curved": {
+          "$type": "borderRadius",
+          "$value": "{global.radius.container.XL}",
+          "$description": "Card (more rounded)"
+        },
+        "sweeping": {
+          "$type": "borderRadius",
+          "$value": "{global.radius.container.XXL}",
+          "$description": "Card largest rounded type"
+        }
       },
       "tile": {
         "moderate": {
@@ -647,11 +721,6 @@
           "$type": "borderRadius",
           "$value": "{global.radius.container.XXL}"
         }
-      },
-      "nudge": {
-        "$type": "borderRadius",
-        "$value": "{global.radius.container.L}",
-        "$description": "nudge radius"
       }
     },
     "space": {
@@ -1359,22 +1428,9 @@
       }
     },
     "boxshadow": {
-      "card": {
-        "enabled": {
-          "$type": "boxShadow",
-          "$value": "{global.boxshadow.interactive.enabled}",
-          "$description": "Card (enabled)"
-        },
-        "hover": {
-          "$type": "boxShadow",
-          "$value": "{global.boxshadow.interactive.hover}",
-          "$description": "Card (hover state)"
-        },
-        "drag": {
-          "$type": "boxShadow",
-          "$value": "{global.boxshadow.interactive.drag}",
-          "$description": "Card (drag state)"
-        }
+      "none": {
+        "$type": "boxShadow",
+        "$value": "{global.boxshadow.none}"
       },
       "carousel": {
         "$type": "boxShadow",
@@ -1396,6 +1452,11 @@
         "$value": "{global.boxshadow.container.distant}",
         "$description": "File preview"
       },
+      "nudge": {
+        "$type": "boxShadow",
+        "$value": "{global.boxshadow.container.far}",
+        "$description": "nudge shadow"
+      },
       "sidebar": {
         "$type": "boxShadow",
         "$value": "{global.boxshadow.container.distant}",
@@ -1406,10 +1467,29 @@
         "$value": "{global.boxshadow.container.sticky-footer}",
         "$description": "Sticky footer in Dialog, Drawer, Sidebar."
       },
-      "nudge": {
-        "$type": "boxShadow",
-        "$value": "{global.boxshadow.container.far}",
-        "$description": "nudge shadow"
+      "inverse": {
+        "stickyfooter": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.container.inverse.sticky-footer}",
+          "$description": "inverse Sticky footer in Dialog, Drawer, Sidebar."
+        }
+      },
+      "card": {
+        "default": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.interactive.default}",
+          "$description": "Card (enabled)"
+        },
+        "hover": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.interactive.hover}",
+          "$description": "Card (hover state)"
+        },
+        "drag": {
+          "$type": "boxShadow",
+          "$value": "{global.boxshadow.interactive.drag}",
+          "$description": "Card (drag state)"
+        }
       }
     },
     "borderwidth": {
@@ -1453,6 +1533,16 @@
         "$value": "{global.borderwidth.XS}",
         "$description": "Note "
       },
+      "profileselector": {
+        "$type": "borderWidth",
+        "$value": "{global.borderwidth.XS}",
+        "$description": "Profile selector list container."
+      },
+      "nudge": {
+        "$type": "borderWidth",
+        "$value": "{global.borderwidth.XL}",
+        "$description": "nudge AI message borders "
+      },
       "sidebar": {
         "$type": "borderWidth",
         "$value": "{global.borderwidth.XS}",
@@ -1486,7 +1576,7 @@
           "$value": "{global.borderwidth.XS}",
           "$description": "File preview (internal borders) "
         },
-        "enabled": {
+        "default": {
           "$type": "borderWidth",
           "$value": "{global.borderwidth.XS}",
           "$description": "File preview (file selector) "
@@ -1518,23 +1608,18 @@
           "$value": "{global.borderwidth.XS}",
           "$description": "Subscription tile (unavailable product)"
         },
-        "enabled": {
+        "default": {
           "$type": "borderWidth",
           "$value": "{global.borderwidth.XS}",
           "$description": "Tile select (enabled tile)"
         }
-      },
-      "nudge": {
-        "$type": "borderWidth",
-        "$value": "{global.borderwidth.XL}",
-        "$description": "nudge AI message borders "
       }
     },
     "opacity": {
       "carousel": {
         "hidden": {
           "$type": "opacity",
-          "$value": "{modes.color.modifiers.input.disabledFg}",
+          "$value": "0.3",
           "$description": "opacity applied to next and previous carousel slides"
         }
       },
@@ -1544,105 +1629,12 @@
           "$value": "0.4",
           "$description": "dimmer opacity value"
         }
-      }
-    },
-    "typography": {
-      "adaptive": {
-        "heading": {
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.heading.S}",
-            "$description": "Accordion, Subscription tile, Tile select and generic tile or card headings"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.heading.M}",
-            "$description": "Dialog, drawer and sidebar headings"
-          }
-        },
-        "subheading": {
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.subheading.M}",
-            "$description": "Accordion subheading,  Step flow subheading, tile select subheading, dialog, drawer and sidebar subheading"
-          }
-        },
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.L}"
-          }
-        },
-        "paragraph": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.moderate.L}"
-          }
-        }
       },
-      "responsive": {
-        "heading": {
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.heading.S}",
-            "$description": "Accordion, Subscription tile, Tile select and generic tile or card headings"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.heading.M}",
-            "$description": "Dialog, drawer and sidebar headings"
-          }
-        },
-        "subheading": {
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.subheading.M}",
-            "$description": "Accordion subheading,  Step flow subheading, tile select subheading, dialog, drawer and sidebar subheading"
-          }
-        },
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.L}"
-          }
-        },
-        "paragraph": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.moderate.L}"
-          }
+      "drag": {
+        "ghost": {
+          "$type": "opacity",
+          "$value": "0.5",
+          "$description": "drag ghost state opacity value"
         }
       }
     }

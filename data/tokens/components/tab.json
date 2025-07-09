@@ -94,15 +94,15 @@
     "color": {
       "bg-active": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.withActive}"
+        "$value": "{modes.color.interactive.monochrome.withActive}"
       },
-      "bg-enabled": {
+      "bg-default": {
         "$type": "color",
         "$value": "{modes.color.none}"
       },
       "bg-hover": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.hoverAlt}",
+        "$value": "{modes.color.interactive.monochrome.hoverAlt}",
         "$description": "For anchor nav, not tab."
       },
       "border-activealt": {
@@ -111,9 +111,9 @@
       },
       "border-active": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.active}"
+        "$value": "{modes.color.interactive.monochrome.active}"
       },
-      "border-enabled": {
+      "border-default": {
         "$type": "color",
         "$value": "{modes.color.generic.fg.delicate}"
       },
@@ -121,29 +121,29 @@
         "$type": "color",
         "$value": "{modes.color.generic.fg.moderate}"
       },
-      "icon-enabled": {
+      "icon-default": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.defaultAlt}"
+        "$value": "{modes.color.interactive.monochrome.defaultAlt}"
       },
       "icon-hover": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.withHover}"
+        "$value": "{modes.color.interactive.monochrome.withHover}"
       },
       "label-active": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.active}"
+        "$value": "{modes.color.interactive.monochrome.active}"
       },
       "icon-active": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.active}"
+        "$value": "{modes.color.interactive.monochrome.active}"
       },
-      "label-enabled": {
+      "label-default": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.default}"
+        "$value": "{modes.color.interactive.monochrome.default}"
       },
       "label-hover": {
         "$type": "color",
-        "$value": "{modes.color.interactive.monochrome.generic.withHover}"
+        "$value": "{modes.color.interactive.monochrome.withHover}"
       },
       "navigation": {
         "bg-default": {
@@ -171,11 +171,11 @@
         },
         "label-error": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.defaultAlt}"
+          "$value": "{modes.color.interactive.monochrome.defaultAlt}"
         },
         "label-warning": {
           "$type": "color",
-          "$value": "{modes.color.interactive.monochrome.generic.defaultAlt}"
+          "$value": "{modes.color.interactive.monochrome.defaultAlt}"
         }
       }
     },
@@ -231,40 +231,6 @@
         "top": {
           "$type": "borderWidth",
           "$value": "{global.borderwidth.S}"
-        }
-      }
-    },
-    "typography": {
-      "adaptive": {
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.adaptive.component.firm.L}"
-          }
-        }
-      },
-      "responsive": {
-        "label": {
-          "S": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.S}"
-          },
-          "M": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.M}"
-          },
-          "L": {
-            "$type": "typography",
-            "$value": "{global.typography.responsive.component.firm.L}"
-          }
         }
       }
     }
